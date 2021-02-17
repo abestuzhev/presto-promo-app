@@ -1,0 +1,158 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.layout {
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    background-color:darkred;
+}
+
+.page-title {
+    font-size: 24px;
+    line-height: 36px;
+    margin-bottom: 18px;
+}
+
+.header {
+    //position: absolute;
+    //top: 0;
+    //left: 0;
+    //z-index: 98;
+    width: 100%;
+    //min-width: 1170px;
+    height: 56px;
+    background-color: rgba(35,40,41,.9);
+    margin-bottom: 30px;
+}
+
+.navigation {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    &__list {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        height: 56px;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        align-items: center;
+
+    }
+    &__item {
+        height: 100%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        align-items: center;
+        &:first-child {
+            padding-right: 20px;
+        }
+    }
+
+    &__link {
+        position: relative;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        height: 100%;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        padding: 0 16px;
+        color: #d7d9d9;
+        letter-spacing: .2px;
+        text-decoration: none;
+
+        &:hover {
+            background-color: rgba(216,216,216,.2);
+            text-decoration: none;
+            color: #fff;
+        }
+    }
+}
+
+
+.user-bar__item--parent {
+    position: relative;
+    padding-right: 30px;
+    padding-left: 6px;
+    max-width: 164px;
+    cursor: pointer;
+}
+
+.user-bar__list {
+    padding: 0;
+}
+
+.user-bar__user-name {
+    line-height: 17px;
+    font-size: 14px;
+    padding-top: 12px;
+    color: #fff;
+
+    a {
+        color: #fff;
+        text-decoration: none;
+    }
+}
+
+.user-bar__company-name-wrapper {
+    line-height: 20px;
+    margin-bottom: 6px;
+    font-size: 12px;
+    color: #c2c3c3;
+}
+
+.user-bar__child-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    background-color: #fff;
+    color: rgba(49,53,63,.87);
+    line-height: 120%;
+    min-width: 190px;
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
+    box-shadow: 0 0 10px rgba(0,0,0,.3);
+}
+
+.user-bar__child-link {
+    position: relative;
+    display: block;
+    padding: 14px 40px 14px 20px;
+    color: rgba(49,53,63,.87);
+    -webkit-transition: .3s ease background-color;
+    transition: .3s ease background-color;
+}
+
+
+.user-bar__item--parent:hover .user-bar__child-list {
+    display: block;
+}
