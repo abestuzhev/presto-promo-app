@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
     return (
@@ -9,13 +10,12 @@ const Header = () => {
                         <div className="navigation__item">                            
                             <div className="logo"></div>
                         </div>
-                        <li id="" className="navigation__item ember-view">
-                            <a href="#" className="navigation__link active ember-view">Главная</a>
-                        </li>
+                        {/* <li id="" className="navigation__item ember-view">
+                            <NavLink to="/" className="navigation__link active ember-view">Главная</NavLink>
+                        </li> */}
                         <li className="navigation__item ember-view">
-                            <a href="#admin" className="navigation__link active ember-view">Dashboard</a>
-                        </li>
-                        
+                            <NavLink to="/admin" className="navigation__link active ember-view">Dashboard</NavLink>
+                        </li>                        
                     </ul>
                     
                </div>
