@@ -7,9 +7,9 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Router path="/admin">
+        <Route path="/admin">
           
-        </Router>
+        </Route>
       </Router>
       
       
