@@ -4,6 +4,7 @@ import Home from './components/Home/Home';
 import Header from './components/Header/Header';
 import { Route } from 'react-router-dom';
 import {connect} from "react-redux";
+import Login from './components/Login/Login';
 
 function App(props) {
   return (
@@ -14,9 +15,18 @@ function App(props) {
       </Route>
 
       <Route exact path="/">
-        
         <Header />
         <Home />
+      </Route>
+
+      <Route exact path={"/:city/actions/:actionId"}>
+        
+        <Home />
+        
+      </Route>
+
+      <Route path="/login">
+        <Login />
       </Route>
 
 

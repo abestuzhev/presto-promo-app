@@ -14,33 +14,70 @@ const ActionsList = (props) => {
                             </div>
                             <div className="action-card__body">
                                 <div className="action-card__head">
-                                    <div className="action-card__title">{action.title}</div>
-                                    <div className="action-card__status">
-                                        {action.status
-                                        ? <span className="action-card__status--green"></span>
-                                        : <span className="action-card__status--red"></span>
-                                    }
+                                    <div className="action-card__title">
+                                        <h3>{action.title}</h3>
+                                        <a href={"http://localhost:3000/" + action.city.url + "/actions/" + action.id } className="action-card__link">http://localhost:3000/{action.city.url}/actions/{action.id}</a>
                                     </div>
+                                    
+                                    <div className="action-card__text">{action.composition}</div>
                                 </div>
-                                <div className="action-card__text">{action.composition}</div>
                                 <ul className="action-card-property">
                                     <li className="action-card-property__item">
-                                        <span>Новая цена: {action.newPrice}</span>
+                                        <div className="action-card-property__card">
+                                            <div className="action-card-property__title">Цена</div>
+                                            <div>Новая цена: {action.newPrice}</div>
+                                            <div>Старая цена: {action.oldPrice}</div>
+                                        </div>                                        
                                     </li>
                                     <li className="action-card-property__item">
-                                        <span>Старая цена: {action.oldPrice}</span>
+                                        <div className="action-card-property__card">
+                                            <div className="action-card-property__box row">
+                                                <div className="action-card-property__title">Город:</div>
+                                                <div>{action.city.name}</div>
+                                            </div>
+                                            <div className="action-card-property__box">
+                                                <div className="action-card-property__title">Кафе:</div>
+                                                <div> {
+                                                    action.organizations.map(cafe => {
+                                                        return (<div>{cafe.name} </div>)
+                                                    })
+                                                }</div>
+                                            </div>
+                                            
+                                            
+                                        </div>
                                     </li>
                                     <li className="action-card-property__item">
-                                        <span>Кафе: {
-                                            action.organizations.map(cafe => {
-                                                return (<i>{cafe.name} </i>)
-                                            })
-                                        }</span>
-                                    </li>
-                                    <li className="action-card-property__item">
-                                        <span>Город: {action.city.name}</span>
+                                        <div className="action-card-property__card">
+                                            <div className="action-card-property__title">Время действия:</div>
+                                            <div>10:00 — 16:00</div>                                            
+                                        </div>
                                     </li>
                                 </ul>
+                                <div className="action-card__status">
+                                        {/* {action.status
+                                            ? <span className="action-card__status--green"></span>
+                                            : <span className="action-card__status--red"></span>
+                                        } */}
+                                        <div className="action-card-operation">
+                                            
+                                            <div className="action-card-operation__item">
+                                                <div className="c-icon"></div>
+                                            </div>
+                                            <div className="action-card-operation__item">
+                                                <div className="c-icon"></div>
+                                            </div>
+                                            <div className="action-card-operation__item">
+                                                <div id="" className="c-switcher">
+                                                    <input id={"c-switcher-" + action.id} className="c-switcher__input" type="checkbox" value="" />
+                                                    <label htmlFor={"c-switcher-" + action.id} className="c-switcher__label">                                                
+                                                        <span className="c-switcher__circle"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
                             </div>
                         </div>
                     </div>
