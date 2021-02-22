@@ -1,37 +1,39 @@
 import './scss/style.scss';
+import React from "react";
 import Dashboard from './admin/Dashboard';
 import Home from './components/Home/Home';
 import Header from './components/Header/Header';
-import { Route } from 'react-router-dom';
+import {Route, withRouter} from 'react-router-dom';
 import {connect} from "react-redux";
 import Login from './components/Login/Login';
+import {compose} from "redux";
 
-function App(props) {
-  return (
-    <div className="App">
+class App extends React.Component {
 
-      <Route exact path="/admin">
-        <Dashboard {...props}/>
-      </Route>
+    render(){
+        return (
+            <div className="App">
 
-      <Route exact path="/">
-        <Header />
-        <Home />
-      </Route>
+                <Route exact path="/admin">
+                    <Dashboard {...this.props}/>
+                </Route>
 
-      <Route exact path={"/:city/actions/:actionId"}>
-        
-        <Home />
-        
-      </Route>
+                <Route exact path="/">
+                    <Header />
+                    <div>Стартовая страница</div>
+                </Route>
 
-      <Route path="/login">
-        <Login />
-      </Route>
+                <Route exact path={"/:city/actions/:actionId"}>
+                    <Home />
+                </Route>
 
+                <Route path="/login">
+                    <Login />
+                </Route>
+            </div>
+        );
+    }
 
-    </div>
-  );
 }
 
 const mapStateToProps = (state) => {
@@ -40,4 +42,7 @@ const mapStateToProps = (state) => {
  }
 }
 
-export default connect(mapStateToProps)(App);
+export default compose(
+    connect(mapStateToProps),
+    withRouter
+)(App);

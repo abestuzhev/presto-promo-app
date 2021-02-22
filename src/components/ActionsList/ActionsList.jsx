@@ -1,6 +1,9 @@
+import {NavLink} from "react-router-dom";
+
 const ActionsList = (props) => {
     console.log("AсtionsList", props);
     return (
+        <>
         <div className="actions">
 
             {props.actions.map(action => {
@@ -16,7 +19,9 @@ const ActionsList = (props) => {
                                 <div className="action-card__head">
                                     <div className="action-card__title">
                                         <h3>{action.title}</h3>
-                                        <a href={"http://localhost:3000/" + action.city.url + "/actions/" + action.id } className="action-card__link">http://localhost:3000/{action.city.url}/actions/{action.id}</a>
+                                        <NavLink to={action.city.url + "/actions/" + action.id } className="action-card__link">
+                                            http://localhost:3000/{action.city.url}/actions/{action.id}
+                                        </NavLink>
                                     </div>
                                     
                                     <div className="action-card__text">{action.composition}</div>
@@ -85,6 +90,7 @@ const ActionsList = (props) => {
             })}
 
         </div>
+        </>
     )
 }
 
