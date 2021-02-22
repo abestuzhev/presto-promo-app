@@ -9,6 +9,13 @@ import store from './redux/redux';
 
 
 
+// import express from 'express';
+// import cors from 'cors';
+
+// const app = express() 
+// app.use(cors())
+
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>

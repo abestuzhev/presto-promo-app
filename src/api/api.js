@@ -25,6 +25,12 @@ export const generalAPI = {
         });
     },
 
+    test: () => {
+        axios.get("https://social-network.samuraijs.com/api/1.0/users?count=1&page=1}").then( res => {
+            console.log("test", res.data);
+        });
+    },
+
     getToken: () => {
         iikoTransport.post("api/1/access_token", {"apiLogin": "1a8a7f96"})
             .then(res => {
