@@ -9,7 +9,6 @@ class Home extends React.Component {
     componentDidMount(){
         // generalAPI.getToken();
         // generalAPI.testRequest();
-        generalAPI.test();
     }
 
     render(){

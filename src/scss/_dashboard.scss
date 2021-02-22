@@ -14,6 +14,19 @@ ul {
     list-style: none;
 }
 
+.img-round {
+    width: 50px;
+    height: 50px;
+    background-color: #790d0d;
+}
+
+.img-square {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: #790d0d;
+}
+
 .layout {
     max-width: 1170px;
     margin: 0 auto;
