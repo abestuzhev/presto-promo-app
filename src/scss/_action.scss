@@ -128,3 +128,77 @@
   background-color: #6a2e11;
   box-shadow: 0 10px 50px 0 rgba(106, 46, 17, .62);
 }
+
+.actions {
+  &-item {
+    margin-bottom: 20px;
+  }
+}
+
+.action-card {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  padding: 20px;
+  background-color: #eee;
+
+  &__img {
+    flex: 0 1 100px;
+  }
+
+  &__body {
+    flex: auto;
+  }
+
+  &__head {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  &__title {
+    font-size: 20px;
+  }
+
+  &__status {
+    &--green {
+      display: block;
+      width: 10px;
+      height: 10px;
+      border-radius: 20px;
+      background-color: green;
+    }
+
+    &--red {
+      display: block;
+      width: 10px;
+      height: 10px;
+      border-radius: 20px;
+      background-color: red;
+    }
+  }
+
+  &__text {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+
+  &-property {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+
+    &__item {
+      padding: 10px;
+
+      span {
+        padding: 6px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+      }
+    }
+  }
+}

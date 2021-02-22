@@ -1,6 +1,6 @@
 import React from "react";
 
-const Action = () => {
+const Action = (props) => {
     return (
         <div className="layout">
             <div className="action-box">

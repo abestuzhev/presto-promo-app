@@ -1,20 +1,33 @@
 import './scss/style.scss';
-import Action from './components/Action/Action';
+import Dashboard from './admin/Dashboard';
+import Home from './components/Home/Home';
 import Header from './components/Header/Header';
-import { Router } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+import {connect} from "react-redux";
 
-function App() {
+function App(props) {
   return (
     <div className="App">
-      <Router>
-        <Route path="/admin">
-          
-        </Route>
-      </Router>
-      
-      
+
+      <Route exact path="/admin">
+        <Dashboard {...props}/>
+      </Route>
+
+      <Route exact path="/">
+        
+        <Header />
+        <Home />
+      </Route>
+
+
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+ return {
+     actions: state.dashboard.actions
+ }
+}
+
+export default connect(mapStateToProps)(App);
