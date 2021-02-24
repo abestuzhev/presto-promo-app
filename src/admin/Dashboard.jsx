@@ -1,8 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import ActionsList from "../components/ActionsList/ActionsList";
-import {connect} from "react-redux";
-import mapStateToProps from "react-redux/lib/connect/mapStateToProps";
+
 
 class Dashboard extends React.Component {
 
@@ -30,25 +29,7 @@ class Dashboard extends React.Component {
                                             <span className="user-bar__user-name"><a href="#">Выход</a></span>
                                         </div>
                                         <ul className="user-bar__child-list">
-                                            <li className="user-bar__child-item">
-                                                <ul className="user-bar__partner-settings">
-                                                    <li className="user-bar__partner-settings-item">
-                                                        <a href="#/outlets" id="ember105" className="user-bar__child-link ember-view">Торговые точки</a>
-                                                    </li>
-                                                    <li className="user-bar__partner-settings-item">
-                                                        <a href="#/employees" id="ember106" className="user-bar__child-link ember-view">Сотрудники</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li className="user-bar__child-item">
-                                                <a href="#/features" className="user-bar__child-link user-bar__child-link features ember-view">Решения для бизнеса</a>
-                                            </li>
-                                            <li className="user-bar__child-item">
-                                                <a href="#/user-settings" id="ember108" className="user-bar__child-link ember-view">Профиль</a>
-                                            </li>
-                                            <li className="user-bar__child-item">
-                                                <a href="#/support" id="ember109" className="user-bar__child-link ember-view">Поддержка</a>
-                                            </li>
+                                            
                                             <li className="user-bar__child-item">
                                                 <button className="user-bar__child-link user-bar__child-link log-out">
                                                     Выход
@@ -68,44 +49,15 @@ class Dashboard extends React.Component {
                             <button className="c-btn">Создать акцию</button>
                         </div>
 
-                        <ActionsList actions = {this.props.actions} />
+                        <ActionsList />
 
-                        {/*<div className="table">*/}
-
-                        {/*    <div className="row header">*/}
-                        {/*        <div className="cell">*/}
-                        {/*            Изображение*/}
-                        {/*        </div>*/}
-                        {/*        <div className="cell">*/}
-                        {/*            Название*/}
-                        {/*        </div>*/}
-                        {/*        <div className="cell">*/}
-                        {/*            Описание*/}
-                        {/*        </div>*/}
-                        {/*        <div className="cell">*/}
-                        {/*            Новая цена*/}
-                        {/*        </div>*/}
-                        {/*        <div className="cell">*/}
-                        {/*            Старая цена*/}
-                        {/*        </div>*/}
-                        {/*        <div className="cell">*/}
-                        {/*            Статус*/}
-                        {/*        </div>*/}
-                        {/*        <div className="cell">*/}
-                        {/*            ред*/}
-                        {/*        </div>*/}
-                        {/*    </div>*/}
-
-                        {/*    <div className="row">*/}
-
-                        {/*    </div>*/}
-                        {/*</div>*/}
                     </div>
                 </div>
             </>
         )
     }
 }
+
 
 
 export default Dashboard;

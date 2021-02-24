@@ -1,4 +1,5 @@
 const SET_ACTIONS = "SET_ACTIONS";
+const CHANGE_STATUS = "CHANGE_STATUS";
 
 const initialState = {
     actions: [
@@ -53,8 +54,21 @@ export const dashboardReducer = (state = initialState, action) => {
                 ...state
             }
 
+        case CHANGE_STATUS:
+            return {
+                ...state,                
+                actions: state.actions.map(item => {
+                    if(item.id === action.payload.actionId) {
+                        return {...item, status: action.payload.status}
+                    }
+                    return item;
+                })
+            }
+
         default:
             return state;
     }
 }
 
+
+export const changeStatus = (actionId, status) => ({type: CHANGE_STATUS, payload: {actionId, status}})

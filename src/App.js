@@ -7,6 +7,7 @@ import {Route, withRouter} from 'react-router-dom';
 import {connect} from "react-redux";
 import Login from './components/Login/Login';
 import {compose} from "redux";
+import Cover from './components/Cover/Cover';
 
 class App extends React.Component {
 
@@ -15,13 +16,10 @@ class App extends React.Component {
             <div className="App">
 
                 <Route exact path="/admin">
-                    <Dashboard {...this.props}/>
+                    <Dashboard />
                 </Route>
 
-                <Route exact path="/">
-                    <Header />
-                    <div>Стартовая страница</div>
-                </Route>
+                
 
                 <Route exact path={"/:city/actions/:actionId"}>
                     <Home />
@@ -29,6 +27,11 @@ class App extends React.Component {
 
                 <Route path="/login">
                     <Login />
+                </Route>
+
+                <Route exact path="/">
+                    <Header />
+                    <Cover />
                 </Route>
             </div>
         );

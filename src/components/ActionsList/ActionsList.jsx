@@ -1,7 +1,15 @@
 import {NavLink} from "react-router-dom";
+import {connect} from "react-redux";
+import {changeStatus} from "../../redux/dashboardReducer";
 
 const ActionsList = (props) => {
     console.log("AсtionsList", props);
+
+    const switcherHandler = (actionId, status) => {
+        console.log("switcherHandler", actionId)
+        props.changeStatus(actionId, status)
+    }
+
     return (
         <>
         <div className="actions">
@@ -19,9 +27,10 @@ const ActionsList = (props) => {
                                 <div className="action-card__head">
                                     <div className="action-card__title">
                                         <h3>{action.title}</h3>
-                                        <NavLink to={action.city.url + "/actions/" + action.id } className="action-card__link">
-                                            http://localhost:3000/{action.city.url}/actions/{action.id}
-                                        </NavLink>
+                                        {action.status && <NavLink to={action.city.url + "/actions/" + action.id } className="action-card__link">
+                                                http://localhost:3000/{action.city.url}/actions/{action.id}
+                                            </NavLink>}
+                                        
                                     </div>
                                     
                                     <div className="action-card__text">{action.composition}</div>
@@ -74,8 +83,8 @@ const ActionsList = (props) => {
                                             </div>
                                             <div className="action-card-operation__item">
                                                 <div id="" className="c-switcher">
-                                                    <input id={"c-switcher-" + action.id} className="c-switcher__input" type="checkbox" value="" />
-                                                    <label htmlFor={"c-switcher-" + action.id} className="c-switcher__label">                                                
+                                                    <input checked={action.status} onChange={() => switcherHandler(action.id, !action.status)}  id={"c-switcher-" + action.id} className="c-switcher__input" type="checkbox" value="" />
+                                                    <label  htmlFor={"c-switcher-" + action.id} className="c-switcher__label">                                                
                                                         <span className="c-switcher__circle"></span>
                                                     </label>
                                                 </div>
@@ -94,4 +103,10 @@ const ActionsList = (props) => {
     )
 }
 
-export default ActionsList;
+const mapStateToProps = (state) => {
+    return {
+        actions: state.dashboard.actions
+    }
+}
+
+export default connect(mapStateToProps, {changeStatus} )(ActionsList);
