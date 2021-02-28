@@ -8,6 +8,7 @@ import {connect} from "react-redux";
 import Login from './components/Login/Login';
 import {compose} from "redux";
 import Cover from './components/Cover/Cover';
+import CreateAction from './components/CreateAction/CreateAction';
 
 class App extends React.Component {
 
@@ -17,6 +18,10 @@ class App extends React.Component {
 
                 <Route exact path="/admin">
                     <Dashboard />
+                </Route>
+
+                <Route exact path="/admin/create_action">
+                    <CreateAction />
                 </Route>
 
                 

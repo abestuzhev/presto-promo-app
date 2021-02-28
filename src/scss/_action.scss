@@ -293,6 +293,17 @@
   &__footer {
     margin-top: 14px;
   }
+
+  &-grid {
+    display: flex;
+    flex-flow: row wrap;
+
+    &__item {
+      width: 50%;
+    }
+  }
+
+
 }
 
 .c-label {
