@@ -39,6 +39,19 @@ ul {
     background-color:darkred;
 }
 
+.page-content {
+    padding: 30px 0;
+}
+
+.page-operation {
+    max-width: 600px;
+    margin: 0 auto;
+
+    .c-input {
+        background-color: #fafbfc;
+    }
+}
+
 .page-title {
     font-size: 24px;
     line-height: 36px;
@@ -60,7 +73,7 @@ ul {
     //min-width: 1170px;
     height: 56px;
     background-color: rgba(35,40,41,.9);
-    margin-bottom: 30px;
+    // margin-bottom: 30px;
 }
 
 .navigation {
