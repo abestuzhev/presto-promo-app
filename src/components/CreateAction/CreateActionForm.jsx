@@ -15,6 +15,10 @@ const CreateActionForm = (props) => {
                     <label htmlFor="" className="c-label">Состав блюда</label>
                     <Field component="input" name="actionDescription" type="text" className="c-input"/>
                 </div>
+                <div className="c-form-box">
+                    <label htmlFor="" className="c-label">id блюда в системе iikoBiz</label>
+                    <Field component="input" name="actionProductId" type="text" className="c-input"/>
+                </div>
             </div>
             <div className="c-form__item">
                 <div className="c-form-grid">

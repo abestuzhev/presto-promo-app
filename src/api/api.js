@@ -15,6 +15,11 @@ const iikoTransport = axios.create({
 //get token alljs
 
 
+//organization/
+//terminal/
+//action/
+//order/
+//auth/
 
 
 export const generalAPI = {
@@ -22,12 +27,6 @@ export const generalAPI = {
     testRequest: () => {
         axios.get("https://jsonplaceholder.typicode.com/todos/4").then( res => {
             console.log("testRequest", res.data);
-        });
-    },
-
-    test: () => {
-        axios.get("https://social-network.samuraijs.com/api/1.0/users?count=1&page=1}").then( res => {
-            console.log("test", res.data);
         });
     },
 
@@ -46,10 +45,17 @@ export const generalAPI = {
     getTerminal: () => {
 
     }
+
+
 }
 
 export const deliveryAPI = {
-    createDelivery: () => {
+
+    createPay: () => {
+
+    },
+
+    createOrder: () => {
 
     }
 }

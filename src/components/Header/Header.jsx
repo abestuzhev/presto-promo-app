@@ -15,7 +15,10 @@ const Header = () => {
                         </li> */}
                         <li className="navigation__item ember-view">
                             <NavLink to="/admin" className="navigation__link active ember-view">Dashboard</NavLink>
-                        </li>                        
+                        </li>
+                        <li className="navigation__item ember-view">
+                            <NavLink to="/login" className="navigation__link active ember-view">Логин</NavLink>
+                        </li>
                     </ul>
                     
                </div>
