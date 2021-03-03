@@ -8,17 +8,22 @@ const initialState = {
             img: null,
             title: "Пицца «Чоризо» 28 см за 250₽",
             composition: "Колбаски Чоризо, томатный соус, сыр Моцарелла, орегано",
+            productId: null,
             newPrice: 250,
             oldPrice: 410,
             status: true,
             organizations: [
                 {
-                    id: 1,
-                    name: "ТРЦ Макси, пр. Ленниградский, 38"
+                    id: "17aa8a63-fe59-470f-bf78-d633c454f329",
+                    terminalId: "000",
+                    Fullname: "Кафе на Дзержинского 7",
+                    name: "Дзержинского 7"
                 },
                 {
-                    id: 2,
-                    name: "Дзержинского, 7"
+                    id: "dfae61dd-1666-4068-b3fb-3cc65be4e0fd",
+                    terminalId: "000",
+                    Fullname: "ТРЦ Макси, пр. Ленинградский, 38",
+                    name: "Макси"
                 }],
             city: {
                 name: "Архангельск",
@@ -30,12 +35,14 @@ const initialState = {
             img: null,
             title: "Пицца «Пепперони» 28 см за 199₽",
             composition: "Колбаски Пепперони, томатный соус, сыр Моцарелла, орегано",
+            productId: null,
             newPrice: 199,
             oldPrice: 390,
             status: false,
             organizations: [
                 {
                     id: 1,
+                    terminalId: "000",
                     name: "ТРЦ Макси, ул. Пролетарская, 2"
                 }
             ],

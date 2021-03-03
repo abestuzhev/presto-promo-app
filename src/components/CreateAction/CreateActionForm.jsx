@@ -36,11 +36,19 @@ const CreateActionForm = (props) => {
                 <div className="c-form-grid">
                     <div className="c-form-grid__item">
                         <label htmlFor="" className="c-label">Город</label>
-                        <Field component="input" name="actionCity" type="text" className="c-input"/>
+                        <Field name="actionCity" component="select" type="select-multiple" className="c-selector">
+                            <option></option>
+                            <option value="arkhangelsk">Архангельск</option>
+                            <option value="tula">Тула</option>
+                        </Field>
                     </div>
                     <div className="c-form-grid__item">
                         <label htmlFor="" className="c-label">Кафе</label>
-                        <Field component="input" name="actionCafe" type="text" className="c-input"/>
+                        <Field name="actionCafe" component="select" type="select-multiple" className="c-selector">
+                            <option></option>
+                            <option value="17aa8a63-fe59-470f-bf78-d633c454f329">Кафе на Дзержинского 7</option>
+                            <option value="dfae61dd-1666-4068-b3fb-3cc65be4e0fd">ТРЦ Макси, пр. Ленинградский, 38</option>
+                        </Field>
                     </div>
                 </div>
             </div>
