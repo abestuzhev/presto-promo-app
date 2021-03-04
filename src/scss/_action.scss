@@ -348,6 +348,16 @@
   width: 100%;
 }
 
+.c-textarea {
+  padding: 10px 10px;
+  border: 1px solid #eaecef;
+  outline: none;
+  font-size: 18px;
+  background-color: #fff !important;
+  border-radius: 5px;
+  width: 100%;
+}
+
 .c-selector {
   padding: 10px 10px;
   border: 1px solid #eaecef;
@@ -356,6 +366,18 @@
   background-color: #fff !important;
   border-radius: 5px;
   width: 100%;
+}
+
+.c-radio {
+  display: inline-block;
+  padding: 10px 10px;
+  font-size: 18px;
+}
+
+.c-checkbox {
+  display: inline-block;
+  padding: 10px 10px;
+  font-size: 18px;
 }
 
 .c-checkbox {

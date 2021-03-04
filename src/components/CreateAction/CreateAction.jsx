@@ -1,5 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { actionsAPI } from "../../api/api";
+import { generateId } from "../utils/utils";
 import CreateActionForm from "./CreateActionForm";
 
 
@@ -7,7 +9,11 @@ class CreateAction extends React.Component {
 
 
     onSubmit = values => {
-        console.log("CreateAction", values)
+        values.actionId = generateId();
+        console.log("values", values);
+        actionsAPI.createAction(values).then(res => {
+            console.log("actionsAPI", res);
+        });
     }
 
     render(){

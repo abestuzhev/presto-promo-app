@@ -4,7 +4,7 @@ const CHANGE_STATUS = "CHANGE_STATUS";
 const initialState = {
     actions: [
         {
-            id: 1,
+            id: 646541,
             img: null,
             title: "Пицца «Чоризо» 28 см за 250₽",
             composition: "Колбаски Чоризо, томатный соус, сыр Моцарелла, орегано",
@@ -31,7 +31,7 @@ const initialState = {
             }
         },
         {
-            id: 2,
+            id: 562434,
             img: null,
             title: "Пицца «Пепперони» 28 см за 199₽",
             composition: "Колбаски Пепперони, томатный соус, сыр Моцарелла, орегано",

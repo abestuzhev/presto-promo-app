@@ -1,10 +1,9 @@
 import axios from "axios";
 
 
-const iikoTransport = axios.create({
-    baseURL: 'https://api-ru.iiko.services/',
+const instance = axios.create({
+    baseURL: 'https://api.pizzapresto.ru',
     timeout: 1000,
-    withCredentials: true,
     headers: {
         'Content-type': 'application/json'
     }
@@ -30,23 +29,48 @@ export const generalAPI = {
         });
     },
 
-    getToken: () => {
-        iikoTransport.post("api/1/access_token", {"apiLogin": "1a8a7f96"})
-            .then(res => {
-                debugger
-                // iikoTransport.defaults.headers.common['Authorization'] = 'Bearer ' + tokenKey + '';
-            });
+    getСities: () => {
+        instance.get("/cities").then(res => {
+            console.log("getСities", res.data);
+        });
     },
 
     getOrganizations: () => {
-
+        instance.get("/organizations").then(res => {
+            console.log("getOrganizations", res.data);
+        });
     },
 
     getTerminal: () => {
 
     }
+}
 
+export const actionsAPI = {
 
+    getActions: () => {
+
+    },
+
+    createAction: (data) => {
+        return instance.post("/action", data);
+    },
+
+    updateAction: () => {
+
+    },
+
+    deleteAction: () => {
+
+    },
+
+    activationAction: () => {
+
+    },
+
+    deactivationAction: () => {
+
+    }
 }
 
 export const deliveryAPI = {

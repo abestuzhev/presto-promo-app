@@ -9,8 +9,14 @@ import Login from './components/Login/Login';
 import {compose} from "redux";
 import Cover from './components/Cover/Cover';
 import CreateAction from './components/CreateAction/CreateAction';
+import { generalAPI } from './api/api';
 
 class App extends React.Component {
+
+    componentDidMount(){
+        generalAPI.getOrganizations();
+        generalAPI.getСities();
+    }
 
     render(){
         return (

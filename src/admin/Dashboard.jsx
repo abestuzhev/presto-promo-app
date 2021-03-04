@@ -5,6 +5,10 @@ import ActionsList from "../components/ActionsList/ActionsList";
 
 class Dashboard extends React.Component {
 
+    componentDidMount(){
+        
+    }
+
     render(){
         return (
             <>
