@@ -1,19 +1,31 @@
 import React from "react";
-import { Field, reduxForm, FormSection } from 'redux-form';
+import {Field, reduxForm, FormSection} from 'redux-form';
+import CheckboxGroup from "../common/CheckboxGroup";
 
 const CreateActionForm = (props) => {
+    let optionsList = [
+        {
+            id: "17aa8a63-fe59-470f-bf78-d633c454f329",
+            name: 'Кафе на Дзержинского 7'
+        },
+        {
+            id: "dfae61dd-1666-4068-b3fb-3cc65be4e0fd",
+            name: 'ТРЦ Макси, пр. Ленинградский, 38'
+        }
+    ]
     return (
         <form className="c-form" onSubmit={props.handleSubmit}>
-            
+
             <div className="c-form__item">
-                
+
                 <div className="c-form-box">
                     <label htmlFor="" className="c-label">Заголовок акции</label>
                     <Field component="input" name="actionTitle" value="Акция № 1" type="text" className="c-input"/>
                 </div>
                 <div className="c-form-box">
                     <label htmlFor="" className="c-label">Состав блюда</label>
-                    <Field component="textarea" name="actionDescription" value="Состав блюда в несколько строк" type="textarea" row="6" className="c-textarea"/>
+                    <Field component="textarea" name="actionDescription" value="Состав блюда в несколько строк"
+                           type="textarea" row="6" className="c-textarea"/>
                 </div>
                 <div className="c-form-box">
                     <label htmlFor="" className="c-label">id блюда в системе iikoBiz</label>
@@ -40,16 +52,19 @@ const CreateActionForm = (props) => {
                             <option value="arkhangelsk">Архангельск</option>
                             <option value="tula">Тула</option>
                         </Field> */}
-                        <Field name="actionCity" component={"input"} type="radio" value="arkhangelsk" className="c-radio" />Архангельск
-                        <Field name="actionCity" component={"input"} type="radio" value="tula" className="c-radio" />Тула
+                        <Field name="actionCity" component={"input"} type="radio" value="arkhangelsk"
+                               className="c-radio"/>Архангельск
+                        <Field name="actionCity" component={"input"} type="radio" value="tula" className="c-radio"/>Тула
                         {/* <Field name="actionCity" component={"input"} type={"checkbox"} className="c-selector">Архангельск</Field> */}
                     </div>
                     <div className="c-form-grid__item">
                         <label htmlFor="" className="c-label">Кафе</label>
-                        <FormSection name="cafe">
-                        <Field name="dzerzhinskogo7" component={"input"} type="checkbox" value="17aa8a63-fe59-470f-bf78-d633c454f329" className="c-checkbox" />Кафе на Дзержинского 7
-                        <Field name="leningradskij38" component={"input"} type="checkbox" value="dfae61dd-1666-4068-b3fb-3cc65be4e0fd" className="c-checkbox" />ТРЦ Макси, пр. Ленинградский, 38
-                        </FormSection>
+                        <Field name="cafe" component={CheckboxGroup} options={optionsList} className="c-checkbox"/>
+
+                        {/*<FormSection name="cafe">*/}
+                        {/*<Field name="dzerzhinskogo7" component={"input"} type="checkbox" value="17aa8a63-fe59-470f-bf78-d633c454f329" className="c-checkbox" />Кафе на Дзержинского 7*/}
+                        {/*<Field name="leningradskij38" component={"input"} type="checkbox" value="dfae61dd-1666-4068-b3fb-3cc65be4e0fd" className="c-checkbox" />ТРЦ Макси, пр. Ленинградский, 38*/}
+                        {/*</FormSection>*/}
 
                         {/* <Field name="actionCafe" component="select" type="select-multiple" className="c-selector">
                             <option value="17aa8a63-fe59-470f-bf78-d633c454f329">Кафе на Дзержинского 7</option>
@@ -67,15 +82,13 @@ const CreateActionForm = (props) => {
                 </div>
             </div>
 
-            
-            
+
             <div className="c-form__item">
                 <button type="submit" className="c-btn">Создать</button>
             </div>
         </form>
     )
 }
-
 
 
 export default reduxForm({form: 'createAction'})(CreateActionForm);
