@@ -7,6 +7,12 @@ import CreateActionForm from "./CreateActionForm";
 
 class CreateAction extends React.Component {
 
+    constructor(props){
+        super(props);
+        this.state = {
+            actionTitle: "Акция № 1"
+        }
+    }
 
     onSubmit = values => {
         values.actionId = generateId();
@@ -26,7 +32,7 @@ class CreateAction extends React.Component {
                             <NavLink className="c-btn" to="/admin">Назад</NavLink>
                         </div>
                         
-                        <CreateActionForm onSubmit={this.onSubmit}/>
+                        <CreateActionForm value={this.state} onSubmit={this.onSubmit}/>
                     </div>
                 </div>
             </div>

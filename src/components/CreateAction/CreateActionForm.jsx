@@ -13,6 +13,16 @@ const CreateActionForm = (props) => {
             name: 'ТРЦ Макси, пр. Ленинградский, 38'
         }
     ]
+
+
+    const renderField = ({ input, label, type, checked }) => (
+        <div>
+          <label>{label}</label>
+          <input {...input} type={type} checked={checked} />
+          
+        </div>
+      );
+
     return (
         <form className="c-form" onSubmit={props.handleSubmit}>
 
@@ -20,23 +30,23 @@ const CreateActionForm = (props) => {
 
                 <div className="c-form-box">
                     <label htmlFor="" className="c-label">Заголовок акции</label>
-                    <Field component="input" name="actionTitle" value="Акция № 1" type="text" className="c-input"/>
+                    <label htmlFor="" className="c-label">{props.value.actionTitle}</label>
+                    <Field component="input" name="actionTitle"  type="text" className="c-input"/>
                 </div>
                 <div className="c-form-box">
                     <label htmlFor="" className="c-label">Состав блюда</label>
-                    <Field component="textarea" name="actionDescription" value="Состав блюда в несколько строк"
-                           type="textarea" row="6" className="c-textarea"/>
+                    <Field component="textarea" name="actionDescription" type="textarea" row="6" className="c-textarea"/>
                 </div>
                 <div className="c-form-box">
                     <label htmlFor="" className="c-label">id блюда в системе iikoBiz</label>
-                    <Field component="input" name="actionProductId" value="" type="text" className="c-input"/>
+                    <Field component="input" name="actionProductId" type="text" className="c-input"/>
                 </div>
             </div>
             <div className="c-form__item">
                 <div className="c-form-grid">
                     <div className="c-form-grid__item">
                         <label htmlFor="" className="c-label">Старая цена</label>
-                        <Field component="input" name="actionOldPrice" type="text" className="c-input"/>
+                        <Field component="input" name="actionOldPrice" type="number" className="c-input"/>
                     </div>
                     <div className="c-form-grid__item">
                         <label htmlFor="" className="c-label">Новая цена</label>
@@ -48,11 +58,10 @@ const CreateActionForm = (props) => {
                 <div className="c-form-grid">
                     <div className="c-form-grid__item">
                         <label htmlFor="" className="c-label">Город</label>
-                        {/* <Field name="actionCity" component="select" type="select-multiple" className="c-selector">
-                            <option value="arkhangelsk">Архангельск</option>
-                            <option value="tula">Тула</option>
-                        </Field> */}
-                        <Field name="actionCity" component={"input"} type="radio" value="arkhangelsk"
+                        {/* <Field name="actionCity" component={renderField} type="radio" value="arkhangelsk" label="Архангельск" checked={true} className="c-radio"/>
+                        <Field name="actionCity" component={renderField} type="radio" value="tula" label="Тула" className="c-radio"/>
+                         */}
+                        <Field name="actionCity" component={"input"} type="radio" value="arkhangelsk" 
                                className="c-radio"/>Архангельск
                         <Field name="actionCity" component={"input"} type="radio" value="tula" className="c-radio"/>Тула
                         {/* <Field name="actionCity" component={"input"} type={"checkbox"} className="c-selector">Архангельск</Field> */}
@@ -90,5 +99,12 @@ const CreateActionForm = (props) => {
     )
 }
 
+const initialValue = {
+    actionTitle: "actionTitle",
+    actionDescription: "actionDescription",
+    actionProductId: "actionProductId"
+}
 
-export default reduxForm({form: 'createAction'})(CreateActionForm);
+export default reduxForm({
+    form: 'createAction'
+})(CreateActionForm);
