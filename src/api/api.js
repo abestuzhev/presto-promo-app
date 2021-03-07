@@ -54,6 +54,7 @@ export const actionsAPI = {
 
     createAction: (data) => {
         return instance.post("/action", data);
+
     },
 
     updateAction: () => {

@@ -17,8 +17,17 @@ class CreateAction extends React.Component {
     onSubmit = values => {
         values.actionId = generateId();
         console.log("values", values);
-        actionsAPI.createAction(values).then(res => {
-            console.log("actionsAPI", res);
+
+        const formData = new FormData();
+        const valuesKeys = Object.keys(values);
+
+        valuesKeys.forEach( (key) => {
+            formData.append(key, values[key]);
+        });
+
+
+        actionsAPI.createAction(formData).then(res => {
+            console.log("actionsAPI", res.data);
         });
     }
 
