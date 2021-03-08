@@ -49,20 +49,22 @@ export const generalAPI = {
 export const actionsAPI = {
 
     getActions: () => {
-
+        // return instance.get("/actions").then(res => {
+        //     console.log("getActions", res.data);
+        // });
+        return instance.get("/actions");
     },
 
     createAction: (data) => {
         return instance.post("/action", data);
-
     },
 
     updateAction: () => {
 
     },
 
-    deleteAction: () => {
-
+    deleteAction: (id) => {
+        return instance.delete(`/action/${id}`);
     },
 
     activationAction: () => {

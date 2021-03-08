@@ -9,13 +9,23 @@ import Login from './components/Login/Login';
 import {compose} from "redux";
 import Cover from './components/Cover/Cover';
 import CreateAction from './components/CreateAction/CreateAction';
-import { generalAPI } from './api/api';
+import { generalAPI, actionsAPI } from './api/api';
+import { actionSuccess } from './redux/dashboardReducer';
 
 class App extends React.Component {
 
     componentDidMount(){
         generalAPI.getOrganizations();
         generalAPI.getСities();
+
+
+        console.log("App", this.props);
+
+        actionsAPI.getActions().then(res => {
+            this.props.actionSuccess(res.data);
+        });
+        
+        
     }
 
     render(){
@@ -57,6 +67,6 @@ const mapStateToProps = (state) => {
 }
 
 export default compose(
-    connect(mapStateToProps),
+    connect(mapStateToProps, {actionSuccess}),
     withRouter
 )(App);

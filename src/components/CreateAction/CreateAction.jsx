@@ -7,23 +7,20 @@ import CreateActionForm from "./CreateActionForm";
 
 class CreateAction extends React.Component {
 
-    constructor(props){
-        super(props);
-        this.state = {
-            actionTitle: "Акция № 1"
-        }
-    }
-
     onSubmit = values => {
-        values.actionId = generateId();
-        console.log("values", values);
-
         const formData = new FormData();
         const valuesKeys = Object.keys(values);
+        // values.actionId = generateId();
+        // values.status = "1";
 
         valuesKeys.forEach( (key) => {
             formData.append(key, values[key]);
         });
+
+        formData.append("actionId", generateId());
+        formData.append("status", true);
+        
+        // console.log("values", values);
 
 
         actionsAPI.createAction(formData).then(res => {
@@ -41,7 +38,7 @@ class CreateAction extends React.Component {
                             <NavLink className="c-btn" to="/admin">Назад</NavLink>
                         </div>
                         
-                        <CreateActionForm value={this.state} onSubmit={this.onSubmit}/>
+                        <CreateActionForm onSubmit={this.onSubmit}/>
                     </div>
                 </div>
             </div>

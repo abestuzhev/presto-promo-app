@@ -1,6 +1,8 @@
 import {NavLink} from "react-router-dom";
 import {connect} from "react-redux";
 import {changeStatus} from "../../redux/dashboardReducer";
+import Loader from "../Loader/Loader";
+import { actionsAPI } from "../../api/api";
 
 const ActionsList = (props) => {
     console.log("AсtionsList", props);
@@ -8,6 +10,17 @@ const ActionsList = (props) => {
     const switcherHandler = (actionId, status) => {
         console.log("switcherHandler", actionId)
         props.changeStatus(actionId, status)
+    }
+
+    const deleteHandler = (id) => {
+        actionsAPI.deleteAction().then(res => {
+            props.changeStatus();
+        });
+        
+    }
+
+    if(!props.actions){
+        return <Loader />
     }
 
     return (
@@ -51,11 +64,12 @@ const ActionsList = (props) => {
                                             </div>
                                             <div className="action-card-property__box">
                                                 <div className="action-card-property__title">Кафе:</div>
-                                                <div> {
+                                                {/* <div> 
+                                                    {
                                                     action.organizations.map(cafe => {
                                                         return (<div>{cafe.name} </div>)
-                                                    })
-                                                }</div>
+                                                    })}
+                                                </div> */}
                                             </div>
                                             
                                             
@@ -78,8 +92,8 @@ const ActionsList = (props) => {
                                             <div className="action-card-operation__item">
                                                 <div className="c-icon"></div>
                                             </div>
-                                            <div className="action-card-operation__item">
-                                                <div className="c-icon"></div>
+                                            <div className="action-card-operation__item" onClick={() => deleteHandler(action.id)}>
+                                                <div className="c-icon">удалить</div>
                                             </div>
                                             <div className="action-card-operation__item">
                                                 <div id="" className="c-switcher">
@@ -109,4 +123,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {changeStatus} )(ActionsList);
+export default connect(mapStateToProps, {changeStatus, deleteAction} )(ActionsList);
