@@ -1,6 +1,7 @@
+import React from "react";
 import {NavLink} from "react-router-dom";
 import {connect} from "react-redux";
-import {changeStatus} from "../../redux/dashboardReducer";
+import {actionSuccess, changeStatus, deleteAction} from "../../redux/dashboardReducer";
 import Loader from "../Loader/Loader";
 import { actionsAPI } from "../../api/api";
 
@@ -13,8 +14,8 @@ const ActionsList = (props) => {
     }
 
     const deleteHandler = (id) => {
-        actionsAPI.deleteAction().then(res => {
-            props.changeStatus();
+        actionsAPI.deleteAction(id).then(res => {
+            props.deleteAction(id);
         });
         
     }
@@ -40,13 +41,13 @@ const ActionsList = (props) => {
                                 <div className="action-card__head">
                                     <div className="action-card__title">
                                         <h3>{action.title}</h3>
-                                        {action.status && <NavLink to={action.city.url + "/actions/" + action.id } className="action-card__link">
-                                                http://localhost:3000/{action.city.url}/actions/{action.id}
+                                        {action.status && <NavLink to={action.city + "/actions/" + action.id } className="action-card__link">
+                                                http://localhost:3000/{action.city}/actions/{action.id}
                                             </NavLink>}
                                         
                                     </div>
                                     
-                                    <div className="action-card__text">{action.composition}</div>
+                                    <div className="action-card__text">{action.description}</div>
                                 </div>
                                 <ul className="action-card-property">
                                     <li className="action-card-property__item">

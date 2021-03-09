@@ -19,7 +19,7 @@ class App extends React.Component {
         generalAPI.getСities();
 
 
-        console.log("App", this.props);
+        // console.log("App", this.props);
 
         actionsAPI.getActions().then(res => {
             this.props.actionSuccess(res.data);

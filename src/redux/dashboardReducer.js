@@ -84,7 +84,8 @@ export const dashboardReducer = (state = initialState, action) => {
 
         case DELETE_ACTION:
             return {
-                ...state
+                ...state,
+                actions: state.actions.filter(elem => elem.id !== action.id)
             }
 
         default:
@@ -95,4 +96,4 @@ export const dashboardReducer = (state = initialState, action) => {
 
 export const changeStatus = (actionId, status) => ({type: CHANGE_STATUS, payload: {actionId, status}});
 export const actionSuccess = (data) => ({type: ACTIONS_SUCCESS, data});
-export const deleteAction = () => ({type: DELETE_ACTION});
+export const deleteAction = (id) => ({type: DELETE_ACTION, id});

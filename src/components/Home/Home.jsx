@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Redirect, withRouter } from "react-router-dom";
 import { generalAPI } from "../../api/api";
 import ActionHome from "./ActionHome";
+import Loader from "../Loader/Loader";
 
 class Home extends React.Component {
 
@@ -24,6 +25,7 @@ class Home extends React.Component {
     }
 
     handleAction(){
+
         return this.props.actions.map(action => {
             // debugger
             if(this.state.actionId === action.id){
@@ -37,6 +39,10 @@ class Home extends React.Component {
     
     render(){
         console.log("actionId", this.state.actionId);
+        if(!this.props.actions){
+            return <Loader />
+        }
+
         return (
             <div className="layout">
                 {this.handleAction()}
