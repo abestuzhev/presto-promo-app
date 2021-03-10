@@ -33,10 +33,10 @@ const ActionHome = (props) => {
             </div>
             <div className="presto-sale-img">
                 <div className="presto-sale-img__figure"></div>
-                {/* <div className="presto-sale__composition-icon js-composition">i</div>
+               <div className="presto-sale__composition-icon js-composition">i</div>
                 <div className="presto-sale__composition">
-                    Колбаски Чоризо, томатный соус, сыр Моцарелла, орегано
-                </div> */}
+                    {props.description}
+                </div>
                 {/* <div className="presto-sale-img__card"></div> */}
             </div>
         </div>

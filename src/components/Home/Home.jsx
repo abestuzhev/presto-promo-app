@@ -25,15 +25,16 @@ class Home extends React.Component {
     }
 
     handleAction(){
-
         return this.props.actions.map(action => {
             // debugger
-            if(this.state.actionId === action.id){
+            if(this.state.actionId === +action.id){
                 if(!action.status){
                     return <Redirect to="/" />
-                }              
+                }
+
                 return <ActionHome {...action}/>
-            }            
+            }
+            console.log("ActionHome write")
         });
     }
     
@@ -59,6 +60,6 @@ const mapStateToProps = (state) => {
 }
 
 export default compose(
-    connect(mapStateToProps, null),
+    connect(mapStateToProps),
     withRouter
 )(Home);
