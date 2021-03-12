@@ -25,6 +25,7 @@ class CreateAction extends React.Component {
 
         actionsAPI.createAction(formData).then(res => {
             actionsAPI.getActions().then(res => {
+                debugger
                 this.props.actionSuccess(res.data);
             });
         });

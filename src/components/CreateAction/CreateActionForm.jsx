@@ -1,7 +1,13 @@
 import React from "react";
 import {Field, reduxForm, FormSection} from 'redux-form';
 import CheckboxGroup from "../common/CheckboxGroup";
+<<<<<<< HEAD
 import Radio from "../common/Radio";
+=======
+import ReduxFormDropzone from "../common/FileInput";
+import * as style from "react-dropzone";
+import FileInput from "../common/FileInput";
+>>>>>>> 5b5c3df5a2fd75a9ba3f61de00617ec19b280991
 
 const CreateActionForm = (props) => {
     let optionsList = [
@@ -42,12 +48,23 @@ const CreateActionForm = (props) => {
                     <Field component="input" name="actionProductId" type="text" className="c-input"/>
                 </div>
                 <div className="c-form-box">
+<<<<<<< HEAD
                     <Field component={Radio} name="actionRadioButton" type="radio" options={{tula: "Тула", arkhangelsk: "Архангельск"}} className="c-radio"/>
                 </div>
                 {/* <div className="c-form-box">
+=======
+>>>>>>> 5b5c3df5a2fd75a9ba3f61de00617ec19b280991
                     <label htmlFor="" className="c-label">Загрузить файл</label>
-                    <Field component="input" name="actionProductImg" type="file" className="c-input"/>
-                </div> */}
+                    <Field name="upfile" component={FileInput} className="c-input"/>
+                </div>
+
+                {/*<div className="c-form-box">*/}
+                {/*    <Field*/}
+                {/*        name={"upfile"}*/}
+                {/*        component={ReduxFormDropzone}*/}
+                {/*        multiple={false}*/}
+                {/*    />*/}
+                {/*</div>*/}
             </div>
             <div className="c-form__item">
                 <div className="c-form-grid">
