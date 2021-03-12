@@ -1,6 +1,7 @@
 import React from "react";
 import {Field, reduxForm, FormSection} from 'redux-form';
 import CheckboxGroup from "../common/CheckboxGroup";
+import Radio from "../common/Radio";
 
 const CreateActionForm = (props) => {
     let optionsList = [
@@ -39,6 +40,9 @@ const CreateActionForm = (props) => {
                 <div className="c-form-box">
                     <label htmlFor="" className="c-label">id блюда в системе iikoBiz</label>
                     <Field component="input" name="actionProductId" type="text" className="c-input"/>
+                </div>
+                <div className="c-form-box">
+                    <Field component={Radio} name="actionRadioButton" type="radio" options={{tula: "Тула", arkhangelsk: "Архангельск"}} className="c-radio"/>
                 </div>
                 {/* <div className="c-form-box">
                     <label htmlFor="" className="c-label">Загрузить файл</label>
