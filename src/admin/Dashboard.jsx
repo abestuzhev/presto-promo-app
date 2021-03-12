@@ -50,7 +50,7 @@ class Dashboard extends React.Component {
                     <div className="layout">
                         <div className="page-header">
                             <h1 className="page-title">Список акций</h1>
-                            <NavLink className="c-btn" to="/admin/create_action">Создать акцию</NavLink>
+                            <NavLink className="c-btn c-btn--primery" to="/admin/create_action">Создать акцию</NavLink>
                         </div>
 
                         <ActionsList />

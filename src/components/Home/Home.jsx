@@ -32,7 +32,7 @@ class Home extends React.Component {
                     return <Redirect to="/" />
                 }
 
-                return <ActionHome {...action}/>
+                return <ActionHome {...action} key={action.id}/>
             }
             console.log("ActionHome write")
         });

@@ -9,8 +9,10 @@ const ActionsList = (props) => {
     console.log("AсtionsList", props);
 
     const switcherHandler = (actionId, status) => {
-        console.log("switcherHandler", actionId)
-        props.changeStatus(actionId, status)
+        console.log("switcherHandler", actionId);
+        props.changeStatus(actionId, status);
+
+        //отправить запрос к API
     }
 
     const deleteHandler = (id) => {
@@ -94,7 +96,7 @@ const ActionsList = (props) => {
                                                 <div className="c-icon"></div>
                                             </div>
                                             <div className="action-card-operation__item" onClick={() => deleteHandler(action.id)}>
-                                                <div className="c-icon">удалить</div>
+                                                <div className="c-icon">&timer;</div>
                                             </div>
                                             <div className="action-card-operation__item">
                                                 <div id="" className="c-switcher">

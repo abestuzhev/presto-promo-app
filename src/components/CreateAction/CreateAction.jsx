@@ -3,6 +3,8 @@ import { NavLink } from "react-router-dom";
 import { actionsAPI } from "../../api/api";
 import { generateId } from "../utils/utils";
 import CreateActionForm from "./CreateActionForm";
+import { actionSuccess } from '../../redux/dashboardReducer';
+import { connect } from "react-redux";
 
 
 class CreateAction extends React.Component {
@@ -20,12 +22,11 @@ class CreateAction extends React.Component {
         formData.append("actionId", generateId());
         formData.append("status", true);
         
-        // console.log("values", values);
+        console.log("formData", formData);
 
 
-        actionsAPI.createAction(formData).then(res => {
+        actionsAPI.createAction(formData).then(res => {            
             actionsAPI.getActions().then(res => {
-                debugger
                 this.props.actionSuccess(res.data);
             });
         });
@@ -53,4 +54,10 @@ class CreateAction extends React.Component {
     }
 }
 
-export default CreateAction;
+const mapStateToProps = (state) => {
+    return {
+        actions: state.dashboard.actions
+    }
+}
+
+export default connect(mapStateToProps, {actionSuccess})(CreateAction);

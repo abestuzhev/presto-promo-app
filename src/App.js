@@ -21,10 +21,10 @@ class App extends React.Component {
 
         // console.log("App", this.props);
 
-        actionsAPI.getActions().then(res => {
+        
+        actionsAPI.getActions().then(res => {            
             this.props.actionSuccess(res.data);
         });
-        
         
     }
 

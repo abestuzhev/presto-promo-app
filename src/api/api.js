@@ -55,7 +55,11 @@ export const actionsAPI = {
     },
 
     createAction: (data) => {
-        return instance.post("/action", data);
+        return instance.post("/action", data, {
+            headers: {
+                'Content-type': 'multipart/form-data'
+            }
+        });
     },
 
     updateAction: () => {
