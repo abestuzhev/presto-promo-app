@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const instance = axios.create({
-    baseURL: 'https://api.pizzapresto.ru',
+    baseURL: 'https://api.pizzapresto.ru/v1',
     headers: {
         'Content-type': 'application/json'
     }

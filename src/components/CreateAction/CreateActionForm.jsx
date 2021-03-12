@@ -1,6 +1,9 @@
 import React from "react";
 import {Field, reduxForm, FormSection} from 'redux-form';
 import CheckboxGroup from "../common/CheckboxGroup";
+import ReduxFormDropzone from "../common/FileInput";
+import * as style from "react-dropzone";
+import FileInput from "../common/FileInput";
 
 const CreateActionForm = (props) => {
     let optionsList = [
@@ -40,10 +43,18 @@ const CreateActionForm = (props) => {
                     <label htmlFor="" className="c-label">id блюда в системе iikoBiz</label>
                     <Field component="input" name="actionProductId" type="text" className="c-input"/>
                 </div>
-                {/* <div className="c-form-box">
+                <div className="c-form-box">
                     <label htmlFor="" className="c-label">Загрузить файл</label>
-                    <Field component="input" name="actionProductImg" type="file" className="c-input"/>
-                </div> */}
+                    <Field name="upfile" component={FileInput} className="c-input"/>
+                </div>
+
+                {/*<div className="c-form-box">*/}
+                {/*    <Field*/}
+                {/*        name={"upfile"}*/}
+                {/*        component={ReduxFormDropzone}*/}
+                {/*        multiple={false}*/}
+                {/*    />*/}
+                {/*</div>*/}
             </div>
             <div className="c-form__item">
                 <div className="c-form-grid">
