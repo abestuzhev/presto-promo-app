@@ -1,8 +1,24 @@
-import React from "react";
+import React, {useState} from "react";
+import Modal from "../Modal/Modal";
 
 const ActionHome = (props) => {
     console.log("ActionHome", props);
+
+    const [isShowModal, setToggleModal] = useState(false);
+
     return (
+
+        <>
+            {isShowModal &&
+            <Modal show={isShowModal} handleClose={() => setToggleModal(false)}>
+                <div className="c-modal--small">
+                    <p>Modal</p>
+                </div>
+            </Modal>
+
+            }
+
+
         <div className="action-layout">
             <div className="action-box">
                 <div className="presto-sale__body">
@@ -19,7 +35,7 @@ const ActionHome = (props) => {
 
 
                     <div className="action-footer">
-                        <button type="button" className="action-btn" id="pay">Купить онлайн</button>
+                        <button type="button" className="action-btn" id="pay" onClick={()=> setToggleModal(true)}>Купить онлайн</button>
 
                         <div className="action-note">
                             *Акция действует только на самовынос по адресу: 
@@ -68,6 +84,8 @@ const ActionHome = (props) => {
                 </div>
             </div>
         </div>
+
+        </>
     )
 }
 

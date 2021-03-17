@@ -13,13 +13,7 @@ class Home extends React.Component {
 
         this.state = {
             // должно прийти число или null
-            actionId: +this.props.match.params.actionId
-            // isActive: this.props.actions.forEach( a => {
-            //         if(a.id === +this.props.match.params.actionId){
-            //             return a.status
-            //         }
-            //     }
-            // )
+            actionId: +this.props.match.params.actionId,
         }
         this.handleAction = this.handleAction.bind(this);
     }
@@ -32,7 +26,10 @@ class Home extends React.Component {
                     return <Redirect to="/" />
                 }
 
-                return <ActionHome {...action} key={action.id}/>
+                return <ActionHome
+                    {...action}
+                    key={action.id}
+                />
             }
             console.log("ActionHome write")
         });
