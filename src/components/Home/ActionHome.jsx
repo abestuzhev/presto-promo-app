@@ -6,6 +6,13 @@ const ActionHome = (props) => {
     console.log("ActionHome", props);
 
     const [isShowModal, setToggleModal] = useState(false);
+    const [totalSum, setTotalSum] = useState(props.newPrice);
+
+
+    const countHandler = (value) => {
+        setTotalSum(value * props.newPrice);
+    }
+
 
     return (
 
@@ -13,10 +20,37 @@ const ActionHome = (props) => {
             {isShowModal &&
             <Modal show={isShowModal} handleClose={() => setToggleModal(false)}>
                 <div className="c-modal--small">
-                    <p>Modal</p>
+                    <div className="c-modal__body">
+                        <div className="c-modal-box">
+                            <div className="c-modal-title">Выберите количество:</div>
+                            <div className="c-modal-counter">
+                                <div className="c-modal-counter__col">
+                                    <Counter limit={{min:1, max:5}} countHandler={countHandler}/>
+                                </div>
+                                <div className="c-modal-counter__col">
+                                    <span>Сумма к оплате:</span>
+                                    <div className="c-modal-counter__sum">{totalSum}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="c-modal-box">
+                            <div className="c-modal-title">Выберите кафе:</div>
+
+                        </div>
+                    </div>
+                    <div className="c-modal__footer">
+                        <div className="c-btn-layout right">
+                            <button className="c-btn">Перейти к оплате →</button>
+                        </div>
+                    </div>
+
+
                 </div>
 
-                <Counter />
+
+
+
+
             </Modal>
 
             }
@@ -61,6 +95,10 @@ const ActionHome = (props) => {
                     <div className="presto-sale__composition">
                         {props.description}
                     </div> */}
+                    <div className="presto-sale-price">
+                        <span className="presto-sale-price__new">{props.newPrice}</span>
+                        <span className="presto-sale-price__old">{props.oldPrice}</span>
+                    </div>
                 </div>
             </div>
             <div className="action-step">

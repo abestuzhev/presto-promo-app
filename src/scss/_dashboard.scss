@@ -136,6 +136,27 @@ ul {
     border-radius: 6px;
     text-decoration: none;
 
+    &-layout {
+        &.right {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        &.left {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        &.center {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
     &--primery {
         background-color: #2ea44f;
         color: #fff;

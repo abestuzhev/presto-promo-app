@@ -1,28 +1,34 @@
 import React, {useState} from "react";
-const Counter = (props) => {
+const Counter = ({limit, countHandler}) => {
+
+
     const [count, setCount] = useState(1);
-    const [disabled, setDisabled] = useState(false);
-    console.log("count", count);
+    const [disabledIncrement, setDisabledIncrement] = useState(false);
+    const [disabledDecrement, setDisabledDecrement] = useState(false);
 
-    const validateNumber = (count) => {
-        (count)  >= 4 ? setDisabled(true) : setDisabled(false);
-        console.log("after", count +1 );
+    const validateNumber = (type, count) => {
+        countHandler(count);
+        if(type === "increment"){
+            setCount(count);
+            count  >= limit.max ? setDisabledIncrement(true) : setDisabledDecrement(false);
+            // console.log("incrementCount", count );
+        }else if(type === "decrement") {
+            setCount(count);
+            setDisabledIncrement(false)
+            count  === limit.min ? setDisabledDecrement(true) : setDisabledIncrement(false);
+            // console.log("decrementCount", count );
+        }
     }
-
-    // count == 5 - disabled
-    
 
     return (
         <div className="c-counter">
-            <button onClick={() => {                
-                setCount(count - 1);   
-                validateNumber(count);         
-                }}  className="c-counter__btn">-</button>
+            <button onClick={() => {
+                validateNumber("decrement", count - 1);
+                }} disabled={disabledDecrement} className="c-counter__btn">-</button>
             <span className="c-counter__number">{count}</span>
-            <button onClick={() => {                
-                setCount(count + 1);   
-                validateNumber(count);
-                }} disabled={disabled} className="c-counter__btn">+</button>
+            <button onClick={() => {
+                validateNumber("increment", count + 1);
+                }} disabled={disabledIncrement} className="c-counter__btn">+</button>
         </div>
     )
 }
