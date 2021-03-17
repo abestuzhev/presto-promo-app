@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import Counter from "../Counter/Counter";
 import Modal from "../Modal/Modal";
 
 const ActionHome = (props) => {
@@ -14,6 +15,8 @@ const ActionHome = (props) => {
                 <div className="c-modal--small">
                     <p>Modal</p>
                 </div>
+
+                <Counter />
             </Modal>
 
             }
