@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import Counter from "../Counter/Counter";
 import Modal from "../Modal/Modal";
-import payOrder from "../utils/payOrder";
+// import payOrder from "../utils/payOrder";
 
 const ActionHome = (props) => {
     console.log("ActionHome", props);
@@ -41,7 +41,7 @@ const ActionHome = (props) => {
                     </div>
                     <div className="c-modal__footer">
                         <div className="c-btn-layout right">
-                            <button onClick={payOrder} className="c-btn">Перейти к оплате →</button>
+                            <button id="payOrder" data-pay="payOrder" className="c-btn c-btn--big">Перейти к оплате →</button>
                         </div>
                     </div>
 
@@ -130,5 +130,7 @@ const ActionHome = (props) => {
         </>
     )
 }
+
+
 
 export default ActionHome;
